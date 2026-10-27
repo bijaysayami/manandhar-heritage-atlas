@@ -41,7 +41,7 @@ function Index() {
           <div className="relative z-10 flex flex-col justify-between px-6 py-14 md:col-span-6 md:py-20">
             <div className="enter flex items-center gap-4">
               <span className="h-px w-10 bg-primary" />
-              <p className="eyebrow text-primary">Est. ने.सं. १०७४ · Kathmandu Valley</p>
+              <p className="eyebrow text-primary">Est. ने.सं. १०७४</p>
             </div>
             <div className="my-12">
               <h1 className="enter text-[clamp(3rem,7vw,6.2rem)]" style={{ ["--d" as string]: "100ms" }}>
