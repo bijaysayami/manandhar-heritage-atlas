@@ -48,12 +48,12 @@ function Gallery() {
         ))}
       </section>
       <div className="mx-auto max-w-7xl px-6 pb-14"><PendingNote>Current images are illustrative. Community photographs will replace them as they are contributed.</PendingNote></div>
-      {open !== null && (
+      {open !== null && items[open] && (
         <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center bg-wood/95 p-6 animate-in fade-in duration-300" onClick={() => setOpen(null)}>
           <button className="absolute right-6 top-6 text-wood-foreground" aria-label="Close"><X className="h-7 w-7" /></button>
           <figure className="animate-in zoom-in-95 duration-300" onClick={(e) => e.stopPropagation()}>
-            <img src={items[open].src} alt={items[open].alt} className="max-h-[80vh] w-auto" />
-            <figcaption className="mt-3 text-sm text-wood-foreground/80">{items[open].alt}</figcaption>
+            <img src={items[open]!.src} alt={items[open]!.alt} className="max-h-[80vh] w-auto" />
+            <figcaption className="mt-3 text-sm text-wood-foreground/80">{items[open]!.alt}</figcaption>
           </figure>
         </div>
       )}

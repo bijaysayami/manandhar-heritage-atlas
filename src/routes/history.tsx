@@ -17,7 +17,7 @@ export const Route = createFileRoute("/history")({
 
 function History() {
   const [active, setActive] = useState(0);
-  const t = terms[active];
+  const t = terms[active] ?? terms[0]!;
   return (
     <>
       <PageIntro eyebrow="History" title="From the seal of 1074 onward." deva="इतिहास" lead="Milestones and leadership of the Sangh, recorded in order. Entries are added only once verified from the Sangh's records." />
