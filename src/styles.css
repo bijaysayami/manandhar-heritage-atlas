@@ -41,7 +41,7 @@
 
 :root {
   --radius: 0.125rem;
-  --background: oklch(0.975 0.012 80);
+  --background: oklch(0.99 0.003 80);
   --foreground: oklch(0.22 0.02 40);
   --card: oklch(0.99 0.006 80);
   --card-foreground: oklch(0.22 0.02 40);
@@ -68,6 +68,7 @@
   --stone: oklch(0.9 0.025 78);
   --sindoor: oklch(0.55 0.21 27);
   --indigo: oklch(0.42 0.16 262);
+  --hero-overlay: linear-gradient(90deg, color-mix(in oklab, var(--wood) 88%, transparent), color-mix(in oklab, var(--wood) 48%, transparent) 60%, color-mix(in oklab, var(--wood) 12%, transparent));
 }
 
 @layer base {
@@ -80,15 +81,15 @@
     font-size: 1.0625rem;
     line-height: 1.7;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; }
-  :lang(ne), .deva { font-family: var(--font-deva); }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; letter-spacing: 0; line-height: 1.18; }
+  :lang(ne), :lang(new), .deva { font-family: var(--font-deva); }
   ::selection { background: var(--sindoor); color: var(--primary-foreground); }
 }
 
 @utility eyebrow {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -122,10 +123,16 @@
 .enter { animation: enter .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0ms); }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 .spin-slow { animation: spin-slow 120s linear infinite; }
+.hero-shade { background: var(--hero-overlay); }
+.hero-image { object-position: center 55%; }
+.heritage-sketch { will-change: transform; }
+select option { background: var(--background); color: var(--foreground); }
+@media (max-width: 640px) { .hero-image { object-position: 65% center; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .enter, .spin-slow { animation: none; }
   .img-zoom img { transition: none; }
+  .heritage-sketch { transform: none !important; }
 }

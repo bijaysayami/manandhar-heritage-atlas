@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from "@/components/site/Chrome";
+import { LanguageProvider } from "@/components/site/Language";
 
 function NotFoundComponent() {
   return (
@@ -108,11 +109,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
       <Header />
       <main>
         <Outlet />
       </main>
       <Footer />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
