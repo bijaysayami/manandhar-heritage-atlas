@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, Heart, MapPin, Phone, Globe } from "lucide-react"
 import logo from "@/assets/logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "./Language";
+import { HeaderInfo } from "./HeaderInfo";
 import { siteContact, languages } from "@/lib/site-info";
 
 const about = [
@@ -31,6 +32,7 @@ export function Header() {
   return <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
     <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 sm:flex sm:justify-between sm:gap-4 sm:px-6 sm:py-4">
       <Link to="/" className="flex min-w-0 items-center gap-3"><img src={logo.url} alt={tr("Central Manandhar Sangh logo", "केन्द्रीय मानन्धर संघको लोगो", "केन्द्रीय मानन्धर संघया लोगो")} width={54} height={54} className="size-12 shrink-0 md:size-14" /><span className="min-w-0"><span className="deva block text-base text-primary md:text-xl">केन्द्रीय मानन्धर संघ</span><span className="hidden text-xs text-muted-foreground sm:block">Central Manandhar Sangh · ने.सं. १०७४</span></span></Link>
+      <HeaderInfo />
       <div className="flex shrink-0 items-center gap-1 sm:gap-2"><Globe className="hidden size-4 text-muted-foreground sm:block" /><label className="sr-only" htmlFor="site-language">Language</label><select id="site-language" aria-label="Language" value={language} onChange={e => { const selected = languages.find(l => l === e.target.value); if (selected) setLanguage(selected); }} className="h-11 w-24 rounded-none border border-border bg-background px-2 text-xs outline-none focus:border-secondary sm:w-32"><option value="en">ENGLISH</option><option value="ne">नेपाली</option><option value="new">नेपाल भाषा</option></select><Button variant="ghost" size="icon" className="size-11 shrink-0 lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-controls="mobile-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
     </div>
     <nav className="mx-auto hidden max-w-7xl items-center justify-between border-t border-border/60 px-6 lg:flex" aria-label="Main">
