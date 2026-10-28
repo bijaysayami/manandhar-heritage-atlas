@@ -171,11 +171,11 @@ select option { background: var(--background); color: var(--foreground); }
 @utility menu-roof {
   position: relative;
   isolation: isolate;
-  padding-inline: 3.5rem;
+  padding-inline: 1.5rem;
   padding-bottom: 6px;
   &::before {
-    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-    clip-path: polygon(3.5% 0, 96.5% 0, 100% 80%, 100% 100%, 0 100%, 0 80%);
+    content: ""; position: absolute; inset: 0 -5rem; z-index: -1; pointer-events: none;
+    clip-path: polygon(5rem 0, calc(100% - 5rem) 0, 100% 80%, 100% 100%, 0 100%, 0 80%);
     background-image:
       linear-gradient(var(--wood), var(--wood)),
       linear-gradient(color-mix(in oklab, var(--wood) 55%, transparent), color-mix(in oklab, var(--wood) 55%, transparent)),
@@ -186,7 +186,7 @@ select option { background: var(--background); color: var(--foreground); }
     background-repeat: no-repeat;
   }
   &::after {
-    content: ""; position: absolute; inset: auto -4px -3px -4px; height: 9px; z-index: -1; pointer-events: none;
+    content: ""; position: absolute; inset: auto calc(-5rem - 4px) -3px calc(-5rem - 4px); height: 9px; z-index: -1; pointer-events: none;
     background:
       radial-gradient(circle at 4.5px 4.5px, var(--background) 2.5px, var(--primary) 3px 4.5px, transparent 5px) left / 9px 9px no-repeat,
       radial-gradient(circle at 4.5px 4.5px, var(--background) 2.5px, var(--primary) 3px 4.5px, transparent 5px) right / 9px 9px no-repeat;
