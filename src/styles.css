@@ -165,3 +165,25 @@ select option { background: var(--background); color: var(--foreground); }
   background-position: bottom, 0 0, 0 0;
   background-repeat: no-repeat, repeat, repeat;
 }
+
+/* Newar pagoda-roof menu: sloped tiled roof with a double wooden eave and upturned corners */
+@utility menu-roof {
+  position: relative;
+  padding-inline: 3.5rem;
+  padding-bottom: 6px;
+  clip-path: polygon(3.5% 0, 96.5% 0, 100% 82%, 100% 100%, 0 100%, 0 82%);
+  background-image:
+    linear-gradient(var(--wood), var(--wood)),
+    linear-gradient(color-mix(in oklab, var(--wood) 55%, transparent), color-mix(in oklab, var(--wood) 55%, transparent)),
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--wood) 9%, transparent) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, color-mix(in oklab, var(--stone, var(--muted)) 40%, var(--background)), var(--background));
+  background-size: 100% 2px, 100% 1px, 100% calc(100% - 6px), 100% 100%;
+  background-position: bottom, 0 calc(100% - 4px), top, 0 0;
+  background-repeat: no-repeat;
+  &::before, &::after {
+    content: ""; position: absolute; bottom: 0; width: 8px; height: 8px; border-radius: 9999px;
+    border: 1.5px solid var(--primary); background: var(--background);
+  }
+  &::before { left: 0; }
+  &::after { right: 0; }
+}
