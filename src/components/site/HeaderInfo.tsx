@@ -3,7 +3,7 @@ import NepaliDate from "nepali-date-converter";
 import { CalendarDays, CloudSun } from "lucide-react";
 
 const weekdays = ["आइतबार", "सोमबार", "मङ्गलबार", "बुधबार", "बिहीबार", "शुक्रबार", "शनिबार"];
-const digits = (n: number | string) => String(n).replace(/\d/g, d => "०१२३४५६७८९"[Number(d)]);
+const digits = (n: number | string) => String(n).replace(/\d/g, d => "०१२३४५६७८९".charAt(Number(d)));
 // Approximate Nepal Sambat new-year (Mha Puja) dates; year number only.
 const nsNewYears: [string, number][] = [["2024-11-02", 1145], ["2025-10-22", 1146], ["2026-11-10", 1147], ["2027-10-30", 1148]];
 function nsYear(now: Date) {
