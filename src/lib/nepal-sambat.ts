@@ -17,7 +17,7 @@ function longitudes(j: number) {
     - 0.03472 * Math.sin(D) - 0.030383 * Math.sin(M + Mp);
   return { sun: norm(sun), moon: norm(moon) };
 }
-const elongation = (j: number) => { const l = longitudes(j); return norm(l.moon - l.sun); };
+export const elongation = (j: number) => { const l = longitudes(j); return norm(l.moon - l.sun); };
 
 function previousNewMoon(j: number) {
   let a = j - elongation(j) / 12.19; // rough estimate
