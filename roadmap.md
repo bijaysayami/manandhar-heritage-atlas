@@ -1,4 +1,8 @@
 # Website update
+- [ ] Add illustrated sample homepage events and community blogs with readable previews.
+- [ ] Correct directory wording and show address/phone placeholders without inventing contacts.
+- [ ] Stabilize and animate About submenu; simplify inactive subscription notice.
+- [ ] Add more researched floating cultural sketches and verify homepage interactions.
 - [x] Refine homepage; animate researched dhime/cymbal sketches.
 - [x] Add navigation destinations and English/Nepali/Newari language switching.
 - [x] Add events/blog placeholder sections, Facebook profile link and inactive newsletter form.
