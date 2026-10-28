@@ -1,4 +1,5 @@
 # Website update
+- [ ] Improve and verify phone layouts for sample stories, navigation and decorative sketches.
 - [x] Add illustrated sample homepage events and community blogs with readable previews.
 - [x] Correct directory wording and show address/phone placeholders without inventing contacts.
 - [x] Stabilize and animate About submenu; simplify inactive subscription notice.
