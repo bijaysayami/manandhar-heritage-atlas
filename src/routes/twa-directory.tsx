@@ -32,7 +32,7 @@ function Directory() {
 
   return (
     <>
-      <PageIntro eyebrow={tr("Twa Directory", "त्वाः निर्देशिका", "त्वाः निर्देशिका")} title={tr("Find your twa.", "आफ्नो त्वाः खोज्नुहोस्।", "छिगु त्वाः मालादिसँ।")} lead={tr("A register of community neighbourhoods.", "समुदायका छिमेकहरूको अभिलेख।", "समुदायया त्वाःतया अभिलेख।")} />
+      <PageIntro eyebrow={tr("Twa Directory", "त्वाः डाइरेक्टरी", "त्वाः डाइरेक्टरी")} title={tr("Find your twa.", "आफ्नो त्वाः खोज्नुहोस्।", "छिगु त्वाः मालादिसँ।")} lead={tr("Community neighbourhoods, addresses and phone contacts.", "समुदायका त्वाः, ठेगाना र फोन सम्पर्क।", "समुदायया त्वाः, ठेगाना व फोन सम्पर्क।")} />
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
           <label className="relative block">
@@ -57,7 +57,7 @@ function Directory() {
                 <p lang="ne" className="deva text-secondary">{t.nameNe}</p>
               </div>
               <p className="eyebrow col-start-2 text-primary md:col-start-auto">{language === "en" ? t.city : ({Kathmandu:"काठमाडौं", Lalitpur:"ललितपुर", Bhaktapur:"भक्तपुर", Kirtipur:"कीर्तिपुर"})[t.city] ?? t.city}</p>
-              <p className="col-start-2 text-sm text-muted-foreground md:col-start-auto">{tr(t.note, "नमूना — पुष्टि भएको अभिलेख होइन।", "नमूना — पुष्टि जूगु अभिलेख मखु।")}</p>
+              <div className="col-start-2 text-sm text-muted-foreground md:col-start-auto"><p>{tr("Address: awaiting confirmation", "ठेगाना: पुष्टि हुन बाँकी", "ठेगाना: पुष्टि जुइगु बाँकी")}</p><p>{tr("Phone: awaiting confirmation", "फोन: पुष्टि हुन बाँकी", "फोन: पुष्टि जुइगु बाँकी")}</p><p className="mt-1 text-xs">{tr(t.note, "नमूना — पुष्टि भएको अभिलेख होइन।", "नमूना — पुष्टि जूगु अभिलेख मखु।")}</p></div>
             </li>
           ))}
           {results.length === 0 && <li className="py-16 text-center text-muted-foreground">{tr("No matching twa.", "मिल्ने त्वाः भेटिएन।", "मिलय् जुइगु त्वाः लुमदु।")}</li>}
