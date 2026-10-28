@@ -1,3 +1,5 @@
+import { useLanguage } from "@/components/site/Language";
+import { Button } from "@/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import elder from "@/assets/elder.jpg";
 import windowImg from "@/assets/window.jpg";
@@ -6,6 +8,8 @@ import { PageIntro, PendingNote, Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/stories")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Community Stories & Senior Interviews — Central Manandhar Sangh" },
       { name: "description", content: "Oral histories and interviews with senior members of the Manandhar community." },
       { property: "og:title", content: "Community Stories — Central Manandhar Sangh" },
@@ -16,6 +20,7 @@ export const Route = createFileRoute("/stories")({
 });
 
 function Stories() {
+  const { tr, language } = useLanguage();
   return (
     <>
       <PageIntro eyebrow="Stories" title="In their own words." deva="ज्येष्ठ नागरिकया खँ" lead="Interviews with our seniors and stories from the community, presented as long-form features." />
