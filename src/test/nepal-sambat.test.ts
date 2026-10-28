@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { nepalSambat } from "@/lib/nepal-sambat";
+import { nepalSambat } from "../lib/nepal-sambat";
 describe("nepalSambat", () => {
   it("28 Oct 2026 is NS 1146 Kaulaga, Kartik Krishna Dwitiya", () => {
     const r = nepalSambat(new Date("2026-10-28T06:00:00Z"));
