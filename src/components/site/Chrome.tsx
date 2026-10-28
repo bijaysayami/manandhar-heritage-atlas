@@ -6,7 +6,7 @@ import logo from "@/assets/logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "./Language";
 import { HeaderInfo } from "./HeaderInfo";
-import { siteContact, languages } from "@/lib/site-info";
+import { siteContact } from "@/lib/site-info";
 
 const about = [
   { to: "/about", label: ["Who we are", "हामी को हौँ", "झी सु खः"] },
