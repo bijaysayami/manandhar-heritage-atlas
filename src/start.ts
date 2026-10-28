@@ -25,5 +25,6 @@ const csrfMiddleware = createCsrfMiddleware({
 });
 
 export const startInstance = createStart(() => ({
+  // Static public site: intentionally no Cloud session middleware or calls.
   requestMiddleware: [errorMiddleware, csrfMiddleware],
 }));

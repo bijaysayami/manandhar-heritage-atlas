@@ -10,15 +10,49 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ActivitiesRouteImport } from './routes/activities'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as CommitteeMembersRouteImport } from './routes/committee-members'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HistoryRouteImport } from './routes/history'
+import { Route as InterviewsRouteImport } from './routes/interviews'
 import { Route as LibraryRouteImport } from './routes/library'
+import { Route as OnlineFormsRouteImport } from './routes/online-forms'
+import { Route as PastPresidentsRouteImport } from './routes/past-presidents'
 import { Route as StoriesRouteImport } from './routes/stories'
+import { Route as SubCommitteesRouteImport } from './routes/sub-committees'
 import { Route as TwaDirectoryRouteImport } from './routes/twa-directory'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesRoute = ActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommitteeMembersRoute = CommitteeMembersRouteImport.update({
+  id: '/committee-members',
+  path: '/committee-members',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -31,14 +65,34 @@ const HistoryRoute = HistoryRouteImport.update({
   path: '/history',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InterviewsRoute = InterviewsRouteImport.update({
+  id: '/interviews',
+  path: '/interviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LibraryRoute = LibraryRouteImport.update({
   id: '/library',
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnlineFormsRoute = OnlineFormsRouteImport.update({
+  id: '/online-forms',
+  path: '/online-forms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PastPresidentsRoute = PastPresidentsRouteImport.update({
+  id: '/past-presidents',
+  path: '/past-presidents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoriesRoute = StoriesRouteImport.update({
   id: '/stories',
   path: '/stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubCommitteesRoute = SubCommitteesRouteImport.update({
+  id: '/sub-committees',
+  path: '/sub-committees',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TwaDirectoryRoute = TwaDirectoryRouteImport.update({
@@ -49,51 +103,125 @@ const TwaDirectoryRoute = TwaDirectoryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/activities': typeof ActivitiesRoute
+  '/blogs': typeof BlogsRoute
+  '/committee-members': typeof CommitteeMembersRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/history': typeof HistoryRoute
+  '/interviews': typeof InterviewsRoute
   '/library': typeof LibraryRoute
+  '/online-forms': typeof OnlineFormsRoute
+  '/past-presidents': typeof PastPresidentsRoute
   '/stories': typeof StoriesRoute
+  '/sub-committees': typeof SubCommitteesRoute
   '/twa-directory': typeof TwaDirectoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/activities': typeof ActivitiesRoute
+  '/blogs': typeof BlogsRoute
+  '/committee-members': typeof CommitteeMembersRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/history': typeof HistoryRoute
+  '/interviews': typeof InterviewsRoute
   '/library': typeof LibraryRoute
+  '/online-forms': typeof OnlineFormsRoute
+  '/past-presidents': typeof PastPresidentsRoute
   '/stories': typeof StoriesRoute
+  '/sub-committees': typeof SubCommitteesRoute
   '/twa-directory': typeof TwaDirectoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/activities': typeof ActivitiesRoute
+  '/blogs': typeof BlogsRoute
+  '/committee-members': typeof CommitteeMembersRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/history': typeof HistoryRoute
+  '/interviews': typeof InterviewsRoute
   '/library': typeof LibraryRoute
+  '/online-forms': typeof OnlineFormsRoute
+  '/past-presidents': typeof PastPresidentsRoute
   '/stories': typeof StoriesRoute
+  '/sub-committees': typeof SubCommitteesRoute
   '/twa-directory': typeof TwaDirectoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/gallery' | '/history' | '/library' | '/stories' | '/twa-directory'
+    | '/'
+    | '/about'
+    | '/activities'
+    | '/blogs'
+    | '/committee-members'
+    | '/contact'
+    | '/gallery'
+    | '/history'
+    | '/interviews'
+    | '/library'
+    | '/online-forms'
+    | '/past-presidents'
+    | '/stories'
+    | '/sub-committees'
+    | '/twa-directory'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gallery' | '/history' | '/library' | '/stories' | '/twa-directory'
+  to:
+    | '/'
+    | '/about'
+    | '/activities'
+    | '/blogs'
+    | '/committee-members'
+    | '/contact'
+    | '/gallery'
+    | '/history'
+    | '/interviews'
+    | '/library'
+    | '/online-forms'
+    | '/past-presidents'
+    | '/stories'
+    | '/sub-committees'
+    | '/twa-directory'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/activities'
+    | '/blogs'
+    | '/committee-members'
+    | '/contact'
     | '/gallery'
     | '/history'
+    | '/interviews'
     | '/library'
+    | '/online-forms'
+    | '/past-presidents'
     | '/stories'
+    | '/sub-committees'
     | '/twa-directory'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ActivitiesRoute: typeof ActivitiesRoute
+  BlogsRoute: typeof BlogsRoute
+  CommitteeMembersRoute: typeof CommitteeMembersRoute
+  ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   HistoryRoute: typeof HistoryRoute
+  InterviewsRoute: typeof InterviewsRoute
   LibraryRoute: typeof LibraryRoute
+  OnlineFormsRoute: typeof OnlineFormsRoute
+  PastPresidentsRoute: typeof PastPresidentsRoute
   StoriesRoute: typeof StoriesRoute
+  SubCommitteesRoute: typeof SubCommitteesRoute
   TwaDirectoryRoute: typeof TwaDirectoryRoute
 }
 
@@ -104,6 +232,41 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities': {
+      id: '/activities'
+      path: '/activities'
+      fullPath: '/activities'
+      preLoaderRoute: typeof ActivitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/committee-members': {
+      id: '/committee-members'
+      path: '/committee-members'
+      fullPath: '/committee-members'
+      preLoaderRoute: typeof CommitteeMembersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -120,6 +283,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HistoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/interviews': {
+      id: '/interviews'
+      path: '/interviews'
+      fullPath: '/interviews'
+      preLoaderRoute: typeof InterviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/library': {
       id: '/library'
       path: '/library'
@@ -127,11 +297,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/online-forms': {
+      id: '/online-forms'
+      path: '/online-forms'
+      fullPath: '/online-forms'
+      preLoaderRoute: typeof OnlineFormsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/past-presidents': {
+      id: '/past-presidents'
+      path: '/past-presidents'
+      fullPath: '/past-presidents'
+      preLoaderRoute: typeof PastPresidentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stories': {
       id: '/stories'
       path: '/stories'
       fullPath: '/stories'
       preLoaderRoute: typeof StoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sub-committees': {
+      id: '/sub-committees'
+      path: '/sub-committees'
+      fullPath: '/sub-committees'
+      preLoaderRoute: typeof SubCommitteesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/twa-directory': {
@@ -146,10 +337,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ActivitiesRoute: ActivitiesRoute,
+  BlogsRoute: BlogsRoute,
+  CommitteeMembersRoute: CommitteeMembersRoute,
+  ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   HistoryRoute: HistoryRoute,
+  InterviewsRoute: InterviewsRoute,
   LibraryRoute: LibraryRoute,
+  OnlineFormsRoute: OnlineFormsRoute,
+  PastPresidentsRoute: PastPresidentsRoute,
   StoriesRoute: StoriesRoute,
+  SubCommitteesRoute: SubCommitteesRoute,
   TwaDirectoryRoute: TwaDirectoryRoute,
 }
 export const routeTree = rootRouteImport
