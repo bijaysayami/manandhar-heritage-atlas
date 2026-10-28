@@ -33,14 +33,14 @@ const items = [
 ];
 
 function Gallery() {
-  const { tr, language } = useLanguage();
+  const { tr } = useLanguage();
   const [open, setOpen] = useState<number | null>(null);
   useEffect(() => {
     const k = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
     window.addEventListener("keydown", k);
-    const selected = open === null ? undefined : items[open];
-  return () => window.removeEventListener("keydown", k);
+    return () => window.removeEventListener("keydown", k);
   }, []);
+  const selected = open === null ? undefined : items[open];
   return (
     <>
       <PageIntro eyebrow={tr("Photo Galleries", "फोटो ग्यालरी", "किपा ग्यालरी")} title={tr("Seen, and kept.", "देखिएका र सुरक्षित।", "स्वयातःगु व सुरक्षित।")} lead={tr("Courtyards, crafts and celebrations.", "आँगन, शिल्प र उत्सवहरू।", "चुक, शिल्प व उत्सवत।")} />
