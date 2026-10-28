@@ -14,3 +14,4 @@
 - Keep shared informational pages in ArchivePage with one leaf route per navigation destination; retain existing archive URLs.
 - Cultural sketches are decorative illustrations, never verified community records; use researched motifs and defer uncertain objects until references are provided.
 - Keep fictional event/blog records in a shared static sample module, explicitly flagged as samples; homepage and archive views reuse the same reading panel so no database or invented official records are introduced.
+- Use a tap-operated About accordion in phone navigation and retain the hover/focus submenu on desktop so navigation works without a mouse.

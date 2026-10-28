@@ -129,12 +129,16 @@
 .about-submenu { opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .18s ease, transform .18s ease, visibility .18s; }
 .about-submenu[data-open="true"] { opacity: 1; visibility: visible; transform: translateY(0); }
 select option { background: var(--background); color: var(--foreground); }
-@media (max-width: 640px) { .hero-image { object-position: 65% center; } }
+.mobile-navigation { animation: enter .18s ease both; }
+@media (max-width: 639px) {
+  .hero-image { object-position: 65% center; }
+  .heritage-sketch { max-width: 9rem; opacity: .45; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .enter, .spin-slow { animation: none; }
+  .enter, .spin-slow, .mobile-navigation { animation: none; }
   .img-zoom img { transition: none; }
   .heritage-sketch { transform: none !important; }
   .about-submenu { transition: none; }
