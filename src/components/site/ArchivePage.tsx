@@ -5,6 +5,7 @@ import { Reveal } from "./Reveal";
 import { Newsletter } from "./Newsletter";
 import { HeritageSketch } from "./HeritageSketch";
 import { siteContact, facebookUrl } from "@/lib/site-info";
+import { SampleStories } from "./SampleStories";
 
 export type ArchiveKind = "about" | "committee" | "subcommittees" | "presidents" | "activities" | "interviews" | "forms" | "contact" | "blogs";
 const copy: Record<ArchiveKind, { title: [string, string, string]; lead: [string, string, string]; empty: [string, string, string] }> = {
@@ -22,10 +23,10 @@ export function ArchivePage({ kind }: { kind: ArchiveKind }) {
   const { tr } = useLanguage();
   const entry = copy[kind];
   return <><section className="relative overflow-hidden border-b border-border"><div className="mx-auto max-w-7xl px-6 py-20"><p className="eyebrow text-primary">{tr("Central Manandhar Sangh", "केन्द्रीय मानन्धर संघ", "केन्द्रीय मानन्धर संघ")}</p><h1 className="enter mt-5 max-w-4xl text-4xl md:text-6xl">{tr(...entry.title)}</h1><p className="mt-6 max-w-2xl text-muted-foreground">{tr(...entry.lead)}</p></div><HeritageSketch className="absolute -bottom-16 -right-12 w-80 text-primary/10" /></section>
-    <section className="mx-auto max-w-7xl px-6 py-16"><Reveal>
+    {kind === "activities" || kind === "blogs" ? <SampleStories kind={kind === "activities" ? "events" : "blogs"} /> : <section className="mx-auto max-w-7xl px-6 py-16"><Reveal>
       {kind === "contact" ? <div className="grid gap-12 md:grid-cols-2"><div><h2 className="text-3xl">{tr(siteContact.name, "केन्द्रीय मानन्धर संघ", "केन्द्रीय मानन्धर संघ")}</h2><p className="mt-6 flex items-start gap-3"><MapPin className="mt-1 size-5 shrink-0 text-primary" />{tr(siteContact.address, "छेत्रपाटी, काठमाडौं, नेपाल।", "छेत्रपाटी, येँ, नेपाल।")}</p><div className="mt-5 flex items-start gap-3"><Phone className="mt-1 size-5 text-primary" /><div>{siteContact.phones.map(phone => <a className="link-line block" href={`tel:+977${phone}`} key={phone}>{phone}</a>)}</div></div></div><div className="border-l border-border pl-8"><p className="eyebrow text-secondary">Facebook</p><a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2">{tr("Visit the Sangh on Facebook", "फेसबुकमा संघ हेर्नुहोस्", "फेसबुकय् संघ स्वयादिसँ")}<ArrowUpRight className="size-4" /></a></div></div> : <p className="max-w-2xl border-l-2 border-primary py-3 pl-6 text-muted-foreground">{tr(...entry.empty)}</p>}
       {kind === "about" && <Link to="/history" className="link-line mt-8 inline-flex items-center gap-2 text-secondary">{tr("Explore our history", "हाम्रो इतिहास हेर्नुहोस्", "झीगु इतिहास स्वयादिसँ")}<ArrowUpRight className="size-4" /></Link>}
-    </Reveal></section>{kind === "forms" && <Newsletter />}</>;
+    </Reveal></section>}{kind === "forms" && <Newsletter />}</>;
 }
 export function archiveHead(title: string, description: string) {
   const fullTitle = `${title} — Central Manandhar Sangh`;
