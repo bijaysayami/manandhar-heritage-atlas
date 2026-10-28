@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown, Heart, MapPin, Phone, Globe } from "lucide-react";
+import skyline from "@/assets/footer-skyline.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "./Language";
