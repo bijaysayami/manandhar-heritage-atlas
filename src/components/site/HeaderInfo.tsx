@@ -13,7 +13,7 @@ export function HeaderInfo() {
     const now = new Date();
     const nd = new NepaliDate(now);
     const lunar = nepalSambat(now);
-    setDate({ bs: `${weekdays[now.getDay()]}, ${nd.format("DD MMMM YYYY", "np")}`, ns: "ने.सं. ११४६,  कौलागा कृष्ण द्वितीया", tithi: "" });
+    setDate({ bs: `${weekdays[now.getDay()]}, ${nd.format("DD MMMM YYYY", "np")}`, ns: lunar.line1, tithi: lunar.line2.split(" ").slice(1).join(" ") });
     fetch("https://api.open-meteo.com/v1/forecast?latitude=27.7172&longitude=85.324&current=temperature_2m,weather_code&timezone=Asia%2FKathmandu")
       .then(r => r.json()).then(d => d?.current && setWeather({ temp: Math.round(d.current.temperature_2m), code: d.current.weather_code })).catch(() => {});
   }, []);
