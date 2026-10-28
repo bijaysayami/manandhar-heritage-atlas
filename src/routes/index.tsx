@@ -1,180 +1,50 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
-import logo from "@/assets/logo.png.asset.json";
+import { ArrowUpRight, ArrowRight, CalendarDays, BookOpen, Users, Headphones, Facebook } from "lucide-react";
 import hero from "@/assets/hero-courtyard.jpg";
 import windowImg from "@/assets/window.jpg";
 import festival from "@/assets/festival.jpg";
 import library from "@/assets/library.jpg";
 import elder from "@/assets/elder.jpg";
-import { Reveal, SealRings } from "@/components/site/Reveal";
-import { milestones } from "@/data/content";
+import { Reveal } from "@/components/site/Reveal";
+import { HeritageSketch } from "@/components/site/HeritageSketch";
+import { Newsletter } from "@/components/site/Newsletter";
+import { useLanguage } from "@/components/site/Language";
+import { Button } from "@/components/ui/button";
+import { facebookUrl } from "@/lib/site-info";
+import { archiveHead } from "@/components/site/ArchivePage";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Central Manandhar Sangh — Living Heritage, Connected Generations" },
-      { name: "description", content: "केन्द्रीय मानन्धर संघ — a digital heritage home for the Manandhar community: history, twa directory, library and stories." },
-      { property: "og:title", content: "Central Manandhar Sangh — Living Heritage" },
-      { property: "og:description", content: "History, twa directory, digital library and community stories of the Manandhar community." },
-    ],
-  }),
+  head: () => archiveHead("Living Heritage, Connected Generations", "Central Manandhar Sangh — history, twas, publications, events and community stories. केन्द्रीय मानन्धर संघ, ने.सं. १०७४."),
   component: Index,
 });
-
 function Index() {
-  const imgRef = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const onScroll = () => {
-      if (imgRef.current) imgRef.current.style.transform = `translateY(${Math.min(window.scrollY, 600) * 0.08}px) scale(1.06)`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl gap-0 md:grid-cols-12 md:min-h-[88vh]">
-          <div className="relative z-10 flex flex-col justify-between px-6 py-14 md:col-span-6 md:py-20">
-            <div className="enter flex items-center gap-4">
-              <span className="h-px w-10 bg-primary" />
-              <p className="eyebrow text-primary">Est. ने.सं. १०७४</p>
-            </div>
-            <div className="my-12">
-              <h1 className="enter text-[clamp(3rem,7vw,6.2rem)]" style={{ ["--d" as string]: "100ms" }}>
-                Living heritage,
-                <br />
-                <em className="text-primary">connected</em> generations.
-              </h1>
-              <p lang="ne" className="deva enter mt-6 text-2xl text-secondary" style={{ ["--d" as string]: "220ms" }}>
-                केन्द्रीय मानन्धर संघ
-              </p>
-              <p className="enter mt-6 max-w-md text-muted-foreground" style={{ ["--d" as string]: "320ms" }}>
-                The digital home of the Manandhar community — gathering our twas, our elders' voices,
-                our publications and our history in one living archive.
-              </p>
-            </div>
-            <div className="enter flex flex-wrap gap-4" style={{ ["--d" as string]: "420ms" }}>
-              <Link to="/history" className="group inline-flex items-center gap-2 bg-primary px-6 py-3 text-primary-foreground transition hover:bg-secondary">
-                Explore our history <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-              <Link to="/twa-directory" className="inline-flex items-center gap-2 border border-foreground/30 px-6 py-3 transition hover:border-secondary hover:text-secondary">
-                Find your twa
-              </Link>
-            </div>
-          </div>
-          <div className="relative md:col-span-6">
-            <div className="enter h-[60vh] overflow-hidden md:absolute md:inset-0 md:h-auto" style={{ ["--d" as string]: "150ms" }}>
-              <img ref={imgRef} src={hero} alt="A traditional Newar brick courtyard with carved wooden windows at golden hour" width={1280} height={1600} className="h-full w-full scale-[1.06] object-cover" />
-            </div>
-            <div className="enter absolute -left-16 bottom-10 hidden md:block" style={{ ["--d" as string]: "500ms" }}>
-              <div className="relative grid h-40 w-40 place-items-center rounded-full bg-card shadow-xl">
-                <SealRings className="spin-slow absolute inset-0 h-full w-full text-secondary/40" />
-                <img src={logo.url} alt="Official seal of Central Manandhar Sangh" width={112} height={112} className="relative h-28 w-28" />
-              </div>
-            </div>
-            <p className="eyebrow absolute bottom-4 right-4 bg-background/85 px-3 py-1 text-[0.6rem] text-muted-foreground">Illustrative heritage imagery</p>
-          </div>
-        </div>
-      </section>
-
-      {/* INTRO STATEMENT — dark */}
-      <section className="bg-wood text-wood-foreground">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-12">
-          <Reveal className="md:col-span-3"><p className="eyebrow text-accent">01 — The Sangh</p></Reveal>
-          <Reveal delay={100} className="md:col-span-9">
-            <p className="font-display text-3xl leading-snug md:text-5xl">
-              A community is remembered through its places, its crafts and the people who carry them forward.
-              <span className="text-wood-foreground/50"> This archive is built to hold all three.</span>
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* TIMELINE TEASER */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid gap-10 md:grid-cols-12">
-          <Reveal className="md:col-span-5">
-            <p className="eyebrow text-primary">02 — Timeline</p>
-            <h2 className="mt-4 text-4xl md:text-6xl">A history, kept in sequence.</h2>
-            <Link to="/history" className="link-line mt-8 inline-block text-secondary">View the full timeline & past presidents →</Link>
-          </Reveal>
-          <div className="md:col-span-7">
-            <ol className="relative border-l border-border">
-              {milestones.slice(0, 3).map((m, i) => (
-                <Reveal as="li" key={i} delay={i * 120} className="relative pb-10 pl-8">
-                  <span className={`absolute -left-[7px] top-2 h-3 w-3 rounded-full ${m.pending ? "border border-border bg-background" : "bg-primary"}`} />
-                  <p lang="ne" className="deva text-sm text-secondary">{m.yearNe}</p>
-                  <h3 className={`mt-1 text-2xl ${m.pending ? "text-muted-foreground" : ""}`}>{m.title}</h3>
-                  <p className="mt-1 text-muted-foreground">{m.body}</p>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      {/* FULL-BLEED */}
-      <section className="relative h-[80vh] min-h-[480px] overflow-hidden">
-        <img src={festival} alt="A Newar festival procession at dusk in an old city street" width={1600} height={912} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-wood via-wood/30 to-transparent" />
-        <div className="relative mx-auto flex h-full max-w-7xl items-end px-6 pb-16">
-          <Reveal className="max-w-2xl text-wood-foreground">
-            <p className="eyebrow text-accent">03 — Gallery</p>
-            <h2 className="mt-4 text-4xl md:text-6xl">Jatra, lamplight and the streets we share.</h2>
-            <Link to="/gallery" className="link-line mt-6 inline-block">Enter the gallery →</Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* DIRECTORY + LIBRARY asymmetric */}
-      <section className="brick-texture">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-12">
-          <Reveal className="md:col-span-5">
-            <div className="img-zoom aspect-[4/5]"><img src={windowImg} alt="Carved Newar wooden window in a brick wall" width={1024} height={1280} loading="lazy" className="h-full w-full object-cover" /></div>
-          </Reveal>
-          <div className="flex flex-col justify-center md:col-span-6 md:col-start-7">
-            <Reveal><p className="eyebrow text-primary">04 — Twa Directory</p></Reveal>
-            <Reveal delay={80}><h2 className="mt-4 text-4xl md:text-6xl">Every twa, a doorway to home.</h2></Reveal>
-            <Reveal delay={160}><p className="mt-6 text-muted-foreground">A searchable register of the neighbourhoods where Manandhar families have lived, worked and gathered — built to grow as records are verified.</p></Reveal>
-            <Reveal delay={240}><Link to="/twa-directory" className="mt-8 inline-flex w-fit items-center gap-2 border-b-2 border-primary pb-1 transition hover:text-primary">Search the directory <ArrowUpRight className="h-4 w-4" /></Link></Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* LIBRARY — dark split */}
-      <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto grid max-w-7xl md:grid-cols-2">
-          <div className="flex flex-col justify-center px-6 py-20 md:pr-16">
-            <Reveal><p className="eyebrow opacity-70">05 — Digital Library</p></Reveal>
-            <Reveal delay={80}><h2 className="mt-4 text-4xl md:text-5xl">Souvenirs, journals and books — preserved and readable.</h2></Reveal>
-            <Reveal delay={160}><Link to="/library" className="link-line mt-8 inline-block">Browse publications →</Link></Reveal>
-          </div>
-          <div className="img-zoom min-h-[360px]"><img src={library} alt="Old manuscripts and books beside a brass oil lamp" width={1280} height={960} loading="lazy" className="h-full w-full object-cover" /></div>
-        </div>
-      </section>
-
-      {/* STORIES */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid items-center gap-12 md:grid-cols-12">
-          <div className="md:col-span-6 md:order-2">
-            <Reveal className="img-zoom aspect-[4/5] md:ml-auto md:w-4/5"><img src={elder} alt="Elder's hands working a traditional wooden oil press" width={1024} height={1280} loading="lazy" className="h-full w-full object-cover" /></Reveal>
-          </div>
-          <div className="md:col-span-6">
-            <Reveal><p className="eyebrow text-primary">06 — Voices</p></Reveal>
-            <Reveal delay={80}>
-              <blockquote className="mt-6 font-display text-3xl italic leading-snug md:text-5xl">
-                “Interviews with our seniors will appear here — in their own words.”
-              </blockquote>
-            </Reveal>
-            <Reveal delay={160}><p className="mt-6 text-muted-foreground">Oral histories of craft, festival and family, recorded with care for the next generation.</p></Reveal>
-            <Reveal delay={240}><Link to="/stories" className="link-line mt-6 inline-block text-secondary">Read community stories →</Link></Reveal>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  const { tr } = useLanguage();
+  const features = [
+    { to: "/twa-directory", icon: Users, title: tr("Twa Directory", "त्वाः निर्देशिका", "त्वाः निर्देशिका"), text: tr("Our neighbourhoods", "हाम्रा छिमेकहरू", "झीगु त्वाःत") },
+    { to: "/history", icon: CalendarDays, title: tr("Our History", "हाम्रो इतिहास", "झीगु इतिहास"), text: tr("From ने.सं. १०७४", "ने.सं. १०७४ देखि", "ने.सं. १०७४ निसें") },
+    { to: "/library", icon: BookOpen, title: tr("Publications", "प्रकाशनहरू", "प्रकाशनत"), text: tr("The community archive", "सामुदायिक अभिलेख", "समुदायया अभिलेख") },
+    { to: "/interviews", icon: Headphones, title: tr("Interviews", "अन्तर्वार्ताहरू", "अन्तर्वार्तात"), text: tr("Voices of our elders", "हाम्रा अग्रजका आवाज", "झीगु थकालीतया सः") },
+  ] as const;
+  return <>
+    <section className="relative isolate overflow-hidden bg-wood text-wood-foreground">
+      <img src={hero} alt={tr("Illustrative traditional Newar courtyard", "नेवार आँगनको चित्रात्मक तस्बिर", "नेवाः चुकया चित्रात्मक किपा")} width={1280} height={1600} className="hero-image absolute inset-0 -z-20 h-full w-full object-cover" />
+      <div className="hero-shade absolute inset-0 -z-10" />
+      <div className="mx-auto flex min-h-[580px] max-w-7xl flex-col justify-center px-6 py-20 md:min-h-[620px] md:py-24">
+        <p className="eyebrow enter text-wood-foreground/80">{tr("Community · Culture · Continuity", "समुदाय · संस्कृति · निरन्तरता", "समुदाय · संस्कृति · निरन्तरता")}</p>
+        <h1 className="enter mt-6 max-w-4xl text-4xl leading-[1.18] md:text-6xl">{tr("Central Manandhar", "केन्द्रीय मानन्धर", "केन्द्रीय मानन्धर")}<br />{tr("Sangh", "संघ", "संघ")}</h1>
+        <p className="enter mt-6 max-w-xl font-display text-xl italic md:text-2xl">{tr("Living heritage, connected generations.", "जीवन्त सम्पदा, जोडिएका पुस्ताहरू।", "म्वाःगु सम्पदा, ज्वानाच्वंगु पुस्तात।")}</p>
+        <p className="enter mt-5 max-w-lg text-wood-foreground/80">{tr("A home for our history, our twas and the stories that bring us together.", "हाम्रो इतिहास, हाम्रा त्वाः र हामीलाई जोड्ने कथाहरूको साझा घर।", "झीगु इतिहास, झीगु त्वाः व झीत ज्वाइगु बाखंया साझा छेँ।")}</p>
+        <div className="enter mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><Link to="/about">{tr("Discover the Sangh", "संघलाई चिन्नुहोस्", "संघ म्हस्यादिसँ")}<ArrowUpRight /></Link></Button><Button asChild variant="outline" size="lg" className="h-12 border-wood-foreground/40 bg-transparent text-wood-foreground hover:bg-wood-foreground hover:text-wood"><Link to="/twa-directory">{tr("Find your twa", "आफ्नो त्वाः खोज्नुहोस्", "छिगु त्वाः मालादिसँ")}</Link></Button></div>
+        <p className="mt-10 text-xs text-wood-foreground/65">{tr("Established", "स्थापना", "स्थापना")} ने.सं. १०७४</p>
+      </div><p className="absolute bottom-3 right-5 text-[10px] text-wood-foreground/60">{tr("Illustrative heritage imagery", "चित्रात्मक सम्पदा तस्बिर", "चित्रात्मक सम्पदा किपा")}</p>
+    </section>
+    <section className="border-b border-border"><div className="mx-auto grid max-w-7xl grid-cols-2 px-6 md:grid-cols-4">{features.map(f => <Link key={f.to} to={f.to} className="group flex min-w-0 items-center gap-4 border-border py-7 pr-4 even:pl-4 md:border-r md:pl-6 md:first:pl-0 md:last:border-0"><f.icon className="size-6 shrink-0 text-primary transition group-hover:-translate-y-1" /><span className="min-w-0"><span className="block text-sm font-semibold md:text-base">{f.title}</span><span className="mt-1 block text-xs text-muted-foreground">{f.text}</span></span></Link>)}</div></section>
+    <section className="relative overflow-hidden"><HeritageSketch className="absolute -right-10 bottom-0 w-[420px] max-w-full text-primary/10" /><div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-12 md:gap-16"><Reveal className="md:col-span-4"><p className="eyebrow text-primary">{tr("The Sangh", "संघ", "संघ")}</p><h2 className="mt-4 text-3xl md:text-4xl">{tr("Our roots. Our shared future.", "हाम्रो जरा। हाम्रो साझा भविष्य।", "झीगु मूल। झीगु साझा भविष्य।")}</h2></Reveal><Reveal delay={120} className="md:col-span-7 md:col-start-6"><p className="max-w-2xl text-xl leading-relaxed">{tr("Our heritage lives in the places we gather, the crafts we practise and the memories we pass on. This is a shared space for the Manandhar community — across neighbourhoods and generations.", "हाम्रो सम्पदा हामी भेला हुने ठाउँ, अभ्यास गर्ने शिल्प र हस्तान्तरण गर्ने सम्झनामा जीवित छ। यो मानन्धर समुदायका लागि छिमेक र पुस्ताहरूलाई जोड्ने साझा स्थान हो।", "झीगु सम्पदा झी मुंनिगु थास, झी याइगु शिल्प व झी बिइगु सम्झनाय् म्वाः। थ्व मानन्धर समुदायया निंतिं त्वाः व पुस्तात ज्वाइगु साझा थास खः।")}</p><Link to="/about" className="link-line mt-6 inline-flex items-center gap-2 text-secondary">{tr("More about us", "हाम्रो बारेमा थप", "झीगु बारेय् थप")}<ArrowRight className="size-4" /></Link></Reveal></div></section>
+    <section className="border-y border-border bg-muted/30"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 md:gap-20">
+      {[{ to: "/activities", title: tr("Latest Events", "नवीनतम कार्यक्रमहरू", "न्हूगु कार्यक्रमत"), small: tr("Around the community", "समुदायमा", "समुदायय्"), empty: tr("New events will be announced here.", "नयाँ कार्यक्रमहरू यहाँ घोषणा गरिनेछ।", "न्हूगु कार्यक्रम थन घोषणा जुइ।"), icon: CalendarDays }, { to: "/blogs", title: tr("Latest Blogs", "नवीनतम ब्लगहरू", "न्हूगु ब्लगत"), small: tr("From the journal", "ब्लगबाट", "ब्लगं"), empty: tr("Community articles are coming soon.", "सामुदायिक लेखहरू चाँडै आउँदैछन्।", "समुदायया लेख छिट्टं वइ।"), icon: BookOpen }].map((item, i) => <Reveal key={item.to} delay={i * 100}><div className="flex flex-wrap items-end justify-between gap-3 border-b border-border pb-5"><div><p className="eyebrow text-primary">{item.small}</p><h2 className="mt-3 text-3xl">{item.title}</h2></div><Link to={item.to} className="inline-flex items-center gap-2 text-sm text-secondary">{tr("View all", "सबै हेर्नुहोस्", "सकल स्वयादिसँ")}<ArrowUpRight className="size-4" /></Link></div><div className="flex items-start gap-4 py-9"><item.icon className="size-7 shrink-0 text-muted-foreground/50" /><div><p>{item.empty}</p><p className="mt-2 text-sm text-muted-foreground">{tr("Awaiting verified entries from the Sangh.", "संघबाट पुष्टि भएका विवरणको प्रतीक्षामा।", "संघं पुष्टि जूगु विवरणया प्रतीक्षाय्।")}</p></div></div></Reveal>)}
+    </div></section>
+    <section className="mx-auto max-w-7xl px-6 py-20"><Reveal className="flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow text-primary">{tr("Explore the archive", "अभिलेख अन्वेषण", "अभिलेख स्वयादिसँ")}</p><h2 className="mt-4 text-3xl md:text-4xl">{tr("Places, pages & people.", "स्थान, पृष्ठ र व्यक्तिहरू।", "थास, पृष्ठ व मनूत।")}</h2></div><Link to="/gallery" className="inline-flex items-center gap-2 text-sm text-secondary">{tr("Photo galleries", "फोटो ग्यालरी", "किपा ग्यालरी")}<ArrowUpRight className="size-4" /></Link></Reveal><div className="mt-10 grid gap-8 md:grid-cols-3">{[{ to: "/twa-directory", img: windowImg, title: tr("Every twa, a doorway home.", "हरेक त्वाः, घरको ढोका।", "सकल त्वाः, छेँया लुखा।"), tag: tr("Twa Directory", "त्वाः निर्देशिका", "त्वाः निर्देशिका") }, { to: "/library", img: library, title: tr("Our words, preserved.", "हाम्रा शब्द, संरक्षित।", "झीगु खँ, संरक्षण जूगु।"), tag: tr("Publications", "प्रकाशनहरू", "प्रकाशनत") }, { to: "/interviews", img: elder, title: tr("A generation of stories.", "एक पुस्ताका कथाहरू।", "छगू पुस्ताया बाखंत।"), tag: tr("Interviews", "अन्तर्वार्ता", "अन्तर्वार्ता") }].map((item, i) => <Reveal key={item.to} delay={i * 100}><Link to={item.to} className="group block"><div className="img-zoom aspect-[4/3]"><img src={item.img} alt={item.tag} loading="lazy" className="h-full w-full object-cover" /></div><p className="eyebrow mt-5 text-primary">{item.tag}</p><h3 className="mt-3 flex items-start justify-between gap-4 text-2xl">{item.title}<ArrowUpRight className="mt-1 size-5 shrink-0 transition group-hover:-translate-y-1" /></h3></Link></Reveal>)}</div><p className="mt-6 text-xs text-muted-foreground">{tr("Illustrative images; verified community photographs will replace them.", "चित्रात्मक तस्बिरहरू; पुष्टि भएका सामुदायिक तस्बिरले प्रतिस्थापन गर्नेछन्।", "चित्रात्मक किपात; पुष्टि जूगु समुदायया किपां साटिइ।")}</p></section>
+    <section className="bg-secondary text-secondary-foreground"><div className="mx-auto grid max-w-7xl md:grid-cols-2"><img src={festival} alt={tr("Illustrative Newar festival procession", "नेवार जात्राको चित्रात्मक तस्बिर", "नेवाः जात्राया चित्रात्मक किपा")} loading="lazy" className="h-full min-h-72 w-full object-cover" /><div className="flex flex-col justify-center px-6 py-14 md:px-12"><Reveal><p className="eyebrow opacity-70">{tr("Community updates", "सामुदायिक समाचार", "समुदायया समाचार")}</p><h2 className="mt-4 text-3xl md:text-4xl">{tr("Follow the Sangh.", "संघलाई पछ्याउनुहोस्।", "संघ नाप ज्वानादिसँ।")}</h2><p className="mt-5 text-secondary-foreground/75">{tr("The latest announcements and photographs on our Facebook profile.", "हाम्रो फेसबुक प्रोफाइलमा नवीनतम सूचना र तस्बिरहरू।", "झीगु फेसबुक प्रोफाइलय् न्हूगु सूचना व किपात।")}</p><Button asChild variant="outline" className="mt-6 h-11 border-secondary-foreground/40 bg-transparent text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary"><a href={facebookUrl} target="_blank" rel="noopener noreferrer"><Facebook />{tr("View Facebook updates", "फेसबुकका समाचार हेर्नुहोस्", "फेसबुकया समाचार स्वयादिसँ")}<ArrowUpRight /></a></Button><p className="mt-4 text-xs text-secondary-foreground/60">{tr("This profile’s live feed is not available for embedding.", "यस प्रोफाइलको प्रत्यक्ष फिड यहाँ देखाउन उपलब्ध छैन।", "थ्व प्रोफाइलया प्रत्यक्ष फिड थन क्यने उपलब्ध मदु।")}</p></Reveal></div></div></section>
+    <Newsletter />
+  </>;
 }
