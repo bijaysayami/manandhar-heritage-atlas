@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight, CalendarDays, BookOpen, Users, Headphones, Facebook } from "lucide-react";
-import hero from "@/assets/hero-courtyard.jpg";
+import heroAsset from "@/assets/indra-jatra-hero.jpg.asset.json";
 import windowImg from "@/assets/window.jpg";
 import festival from "@/assets/festival.jpg";
 import library from "@/assets/library.jpg";
@@ -28,7 +28,7 @@ function Index() {
   ] as const;
   return <>
     <section className="relative isolate overflow-hidden bg-wood text-wood-foreground">
-      <img src={hero} alt={tr("Illustrative traditional Newar courtyard", "नेवार आँगनको चित्रात्मक तस्बिर", "नेवाः चुकया चित्रात्मक किपा")} width={1280} height={1600} className="hero-image absolute inset-0 -z-20 h-full w-full object-cover" />
+      <img src={heroAsset.url} alt={tr("Indra Jatra festival in Kathmandu", "काठमाडौंमा इन्द्रजात्रा", "येँया येँयाः पुन्हि")} className="hero-image absolute inset-0 -z-20 h-full w-full object-cover" />
       <div className="hero-shade absolute inset-0 -z-10" />
       <div className="mx-auto flex min-h-[580px] max-w-7xl flex-col justify-center px-6 py-20 md:min-h-[620px] md:py-24">
         <p className="eyebrow enter text-wood-foreground/80">{tr("Community · Culture · Continuity", "समुदाय · संस्कृति · निरन्तरता", "समुदाय · संस्कृति · निरन्तरता")}</p>
@@ -37,7 +37,7 @@ function Index() {
         <p className="enter mt-5 max-w-lg text-wood-foreground/80">{tr("A home for our history, our twas and the stories that bring us together.", "हाम्रो इतिहास, हाम्रा त्वाः र हामीलाई जोड्ने कथाहरूको साझा घर।", "झीगु इतिहास, झीगु त्वाः व झीत ज्वाइगु बाखंया साझा छेँ।")}</p>
         <div className="enter mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><Link to="/about">{tr("Discover the Sangh", "संघलाई चिन्नुहोस्", "संघ म्हस्यादिसँ")}<ArrowUpRight /></Link></Button><Button asChild variant="outline" size="lg" className="h-12 border-wood-foreground/40 bg-transparent text-wood-foreground hover:bg-wood-foreground hover:text-wood"><Link to="/twa-directory">{tr("Find your twa", "आफ्नो त्वाः खोज्नुहोस्", "छिगु त्वाः मालादिसँ")}</Link></Button></div>
         <p className="mt-10 text-xs text-wood-foreground/65">{tr("Established", "स्थापना", "स्थापना")} ने.सं. १०७४</p>
-      </div><p className="absolute bottom-3 right-5 text-[10px] text-wood-foreground/60">{tr("Illustrative heritage imagery", "चित्रात्मक सम्पदा तस्बिर", "चित्रात्मक सम्पदा किपा")}</p>
+      </div><p className="absolute bottom-3 right-5 text-[10px] text-wood-foreground/60">{tr("Indra Jatra 2016 · Photo: The Kathmandu Post", "इन्द्रजात्रा २०१६ · तस्बिर: द काठमाडौं पोस्ट", "येँयाः २०१६ · किपा: द काठमाडौं पोस्ट")}</p>
     </section>
     <section className="border-b border-border"><div className="mx-auto grid max-w-7xl grid-cols-2 px-6 md:grid-cols-4">{features.map(f => <Link key={f.to} to={f.to} className="group flex min-w-0 items-center gap-4 border-border py-7 pr-4 even:pl-4 md:border-r md:pl-6 md:first:pl-0 md:last:border-0"><f.icon className="size-6 shrink-0 text-primary transition group-hover:-translate-y-1" /><span className="min-w-0"><span className="block text-sm font-semibold md:text-base">{f.title}</span><span className="mt-1 block text-xs text-muted-foreground">{f.text}</span></span></Link>)}</div></section>
     <section className="relative overflow-hidden"><HeritageSketch className="absolute -right-10 bottom-0 w-[420px] max-w-full text-primary/25" /><HeritageSketch variant="pole" className="absolute -left-20 top-5 w-64 text-secondary/15" /><div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-12 md:gap-16"><Reveal className="md:col-span-4"><p className="eyebrow text-primary">{tr("The Sangh", "संघ", "संघ")}</p><h2 className="mt-4 text-3xl md:text-4xl">{tr("Our roots. Our shared future.", "हाम्रो जरा। हाम्रो साझा भविष्य।", "झीगु मूल। झीगु साझा भविष्य।")}</h2></Reveal><Reveal delay={120} className="md:col-span-7 md:col-start-6"><p className="max-w-2xl text-xl leading-relaxed">{tr("Our heritage lives in the places we gather, the crafts we practise and the memories we pass on. This is a shared space for the Manandhar community — across neighbourhoods and generations.", "हाम्रो सम्पदा हामी भेला हुने ठाउँ, अभ्यास गर्ने शिल्प र हस्तान्तरण गर्ने सम्झनामा जीवित छ। यो मानन्धर समुदायका लागि छिमेक र पुस्ताहरूलाई जोड्ने साझा स्थान हो।", "झीगु सम्पदा झी मुंनिगु थास, झी याइगु शिल्प व झी बिइगु सम्झनाय् म्वाः। थ्व मानन्धर समुदायया निंतिं त्वाः व पुस्तात ज्वाइगु साझा थास खः।")}</p><Link to="/about" className="link-line mt-6 inline-flex items-center gap-2 text-secondary">{tr("More about us", "हाम्रो बारेमा थप", "झीगु बारेय् थप")}<ArrowRight className="size-4" /></Link></Reveal></div></section>
