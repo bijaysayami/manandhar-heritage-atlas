@@ -1,8 +1,8 @@
 # Website update
-- [ ] Add illustrated sample homepage events and community blogs with readable previews.
-- [ ] Correct directory wording and show address/phone placeholders without inventing contacts.
-- [ ] Stabilize and animate About submenu; simplify inactive subscription notice.
-- [ ] Add more researched floating cultural sketches and verify homepage interactions.
+- [x] Add illustrated sample homepage events and community blogs with readable previews.
+- [x] Correct directory wording and show address/phone placeholders without inventing contacts.
+- [x] Stabilize and animate About submenu; simplify inactive subscription notice.
+- [x] Add researched dhaa, flute, cymbal, festival-pole and oil-press silhouettes; verify homepage interactions.
 - [x] Refine homepage; animate researched dhime/cymbal sketches.
 - [x] Add navigation destinations and English/Nepali/Newari language switching.
 - [x] Add events/blog placeholder sections, Facebook profile link and inactive newsletter form.
@@ -10,5 +10,5 @@
 - [x] Add copyright and Codeilo Solutions credit with a heart icon.
 - [x] Keep site static; remove subscription collection and Cloud session middleware.
 - [ ] Add live Facebook feed — blocked by unverified Page status/embedding support for supplied profile.
-- [ ] Add accurate yashin/oil mill/bahumat drawings — awaiting community reference images.
+- [ ] Add a bahumata sketch and confirm the intended busya form — awaiting community reference images; other researched silhouettes are decorative, not archival drawings.
 - [ ] Publish real events/blogs and approve Newari wording — awaiting supplied content and fluent-speaker review.
