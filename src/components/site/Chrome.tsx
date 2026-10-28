@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown, Heart, MapPin, Phone, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Heart, MapPin, Phone } from "lucide-react";
 import skyline from "@/assets/footer-skyline.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "./Language";
 import { HeaderInfo } from "./HeaderInfo";
-import { siteContact, languages } from "@/lib/site-info";
+import { siteContact } from "@/lib/site-info";
 
 const about = [
   { to: "/about", label: ["Who we are", "हामी को हौँ", "झी सु खः"] },
@@ -36,7 +36,7 @@ export function Header() {
     <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 sm:flex sm:justify-between sm:gap-4 sm:px-6 sm:py-4">
       <Link to="/" className="flex min-w-0 items-center gap-3"><img src={logo.url} alt={tr("Central Manandhar Sangh logo", "केन्द्रीय मानन्धर संघको लोगो", "केन्द्रीय मानन्धर संघया लोगो")} width={54} height={54} className="size-12 shrink-0 md:size-14" /><span className="min-w-0"><span className="deva block text-base text-primary md:text-xl">केन्द्रीय मानन्धर संघ</span><span className="hidden text-xs text-muted-foreground sm:block">Central Manandhar Sangh · ने.सं. १०७४</span></span></Link>
       <HeaderInfo />
-      <div className="flex shrink-0 items-center gap-1 sm:gap-2"><Globe className="hidden size-4 text-muted-foreground sm:block" /><label className="sr-only" htmlFor="site-language">Language</label><select id="site-language" aria-label="Language" value={language} onChange={e => { const selected = languages.find(l => l === e.target.value); if (selected) setLanguage(selected); }} className="h-11 w-24 rounded-none border border-border bg-background px-2 text-xs outline-none focus:border-secondary sm:w-32"><option value="en">ENGLISH</option><option value="ne">नेपाली</option><option value="new">नेपाल भाषा</option></select><Button variant="ghost" size="icon" className="size-11 shrink-0 lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-controls="mobile-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
+      <div className="flex shrink-0 items-center gap-1 sm:gap-2"><div className="flex flex-col items-end gap-1"><span id="lang-label" className="hidden text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:block">{tr("Choose Language", "भाषा छान्नुहोस्", "भाय् ल्यये")}</span><div role="radiogroup" aria-labelledby="lang-label" aria-label="Language" className="flex rounded-full border border-border bg-muted/60 p-0.5">{([["en", "English", "EN"], ["ne", "नेपाली", "ने"], ["new", "नेपाल भाषा", "नेभा"]] as const).map(([code, label, short]) => <button key={code} type="button" role="radio" aria-checked={language === code} aria-label={label} onClick={() => setLanguage(code)} className={`rounded-full px-2.5 py-1.5 text-xs transition-colors duration-200 sm:px-3.5 ${code === "en" ? "" : "deva"} ${language === code ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}><span className="sm:hidden">{short}</span><span className="hidden sm:inline">{label}</span></button>)}</div></div><Button variant="ghost" size="icon" className="size-11 shrink-0 lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-controls="mobile-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
     </div>
     {open && <nav id="mobile-navigation" aria-label="Mobile" className="mobile-navigation max-h-[calc(100dvh-88px)] overflow-y-auto overscroll-contain border-t border-border px-4 pb-5 sm:px-6 lg:hidden"><Button variant="ghost" className="h-auto min-h-12 w-full justify-between whitespace-normal border-b border-border px-0 text-primary" aria-expanded={aboutOpen} aria-controls="mobile-about-submenu" onClick={() => setAboutOpen(!aboutOpen)}>{tr("About Us", "हाम्रो बारेमा", "झीगु बारेय्")}<ChevronDown className={`shrink-0 transition-transform ${aboutOpen ? "rotate-180" : ""}`} /></Button>{aboutOpen && <div id="mobile-about-submenu" className="mobile-navigation border-l-2 border-primary/30 pl-3">{about.map(n => <Link key={n.to} to={n.to} onClick={() => { setOpen(false); setAboutOpen(false); }} className="flex min-h-12 items-center border-b border-border py-3 text-sm">{tr(n.label[0], n.label[1], n.label[2])}</Link>)}</div>}{nav.map(n => <Link key={n.to} to={n.to} onClick={() => { setOpen(false); setAboutOpen(false); }} className="flex min-h-12 items-center border-b border-border py-3">{tr(n.label[0], n.label[1], n.label[2])}</Link>)}</nav>}
   </header>
