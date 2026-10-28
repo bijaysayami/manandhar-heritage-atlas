@@ -154,3 +154,14 @@ select option { background: var(--background); color: var(--foreground); }
     linear-gradient(var(--gold), var(--gold)) 0 0 / 100% 2px no-repeat,
     var(--primary);
 }
+
+/* Very faint Newar lattice + thin red/blue rule behind the sticky menu */
+@utility menu-lattice {
+  background-image:
+    linear-gradient(90deg, color-mix(in oklab, var(--primary) 55%, transparent), color-mix(in oklab, var(--secondary) 55%, transparent)),
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--primary) 5%, transparent) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--secondary) 5%, transparent) 0 1px, transparent 1px 14px);
+  background-size: 100% 2px, auto, auto;
+  background-position: bottom, 0 0, 0 0;
+  background-repeat: no-repeat, repeat, repeat;
+}
