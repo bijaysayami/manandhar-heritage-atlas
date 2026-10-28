@@ -10,7 +10,7 @@ export function Newsletter() {
       <form onSubmit={event => event.preventDefault()} className="self-center">
         <label htmlFor="newsletter-email" className="text-sm">{tr("Email address", "इमेल ठेगाना", "इमेल ठेगाना")}</label>
         <div className="mt-2 flex border-b border-border pb-2"><input id="newsletter-email" type="email" disabled placeholder="you@example.com" className="min-w-0 flex-1 bg-transparent py-2 outline-none disabled:opacity-50" /><Button type="submit" disabled className="h-11 shrink-0">{tr("Subscribe", "सदस्य बन्नुहोस्", "सदस्य जुयादिसँ")}</Button></div>
-        <p className="mt-4 text-sm text-muted-foreground">{tr("Subscriptions will open soon. No email addresses are being collected yet.", "सदस्यता चाँडै खुल्नेछ। अहिले इमेल ठेगाना सङ्कलन भइरहेको छैन।", "सदस्यता छिट्टं चालु जुइ। थौं इमेल ठेगाना मुंकेगु मदु।")}</p>
+        <p className="mt-3 text-xs text-muted-foreground">{tr("Registration unavailable", "दर्ता उपलब्ध छैन", "दर्ता उपलब्ध मदु")}</p>
       </form>
     </div>
   </section>;
