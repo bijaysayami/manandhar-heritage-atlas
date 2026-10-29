@@ -175,16 +175,14 @@ select option { background: var(--background); color: var(--foreground); }
   padding-inline: 1.5rem;
   padding-bottom: 6px;
   &::before {
-    content: ""; position: absolute; inset: -8px -5rem 0 -5rem; z-index: -1; pointer-events: none;
-    clip-path: polygon(5rem 8px, calc(100% - 5rem) 8px, calc(100% - 0.4rem) 0, 100% calc(100% - 10px), 100% 100%, 0 100%, 0 calc(100% - 10px), 0.4rem 0);
-    filter: drop-shadow(0.8px 0 0 color-mix(in oklab, var(--wood) 45%, transparent)) drop-shadow(-0.8px 0 0 color-mix(in oklab, var(--wood) 45%, transparent)) drop-shadow(0 0.8px 0 color-mix(in oklab, var(--wood) 45%, transparent)) drop-shadow(0 -0.8px 0 color-mix(in oklab, var(--wood) 45%, transparent));
+    content: ""; position: absolute; inset: 0 -5rem; z-index: -1; pointer-events: none;
+    clip-path: polygon(5rem 0, calc(100% - 5rem) 0, calc(100% - 1rem) calc(100% - 6px), calc(100% - 0.15rem) calc(100% - 20px), 100% 100%, 0 100%, 0.15rem calc(100% - 20px), 1rem calc(100% - 6px));
     background-image:
       linear-gradient(color-mix(in oklab, var(--wood) 62%, transparent), color-mix(in oklab, var(--wood) 62%, transparent)),
-      linear-gradient(color-mix(in oklab, var(--wood) 28%, transparent), color-mix(in oklab, var(--wood) 28%, transparent)),
       repeating-linear-gradient(90deg, color-mix(in oklab, var(--wood) 4%, transparent) 0 1px, transparent 1px 7px),
       linear-gradient(180deg, color-mix(in oklab, var(--muted) 30%, var(--background)), var(--background));
-    background-size: 100% 6px, 100% 1px, 100% calc(100% - 7px), 100% 100%;
-    background-position: bottom, 0 calc(100% - 7px), top, 0 0;
+    background-size: 100% 1px, 100% calc(100% - 1px), 100% 100%;
+    background-position: bottom, top, 0 0;
     background-repeat: no-repeat;
   }
   &::after {
