@@ -9,7 +9,7 @@ export function HeritageSketch({ className = "", variant = "drum" }: { className
     let frame = 0;
     const update = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => {
       const el = ref.current;
-       if (el) { const mobile = window.matchMedia("(max-width: 639px)").matches; const limit = mobile ? 8 : 32; const offset = Math.max(-limit, Math.min(limit, (window.innerHeight / 2 - el.getBoundingClientRect().top) * (mobile ? .025 : .07))); el.style.transform = `translateY(${offset}px) rotate(${offset * .12}deg)`; }
+       if (el) { const mobile = window.matchMedia("(max-width: 639px)").matches; const limit = mobile ? 18 : 72; const offset = Math.max(-limit, Math.min(limit, (window.innerHeight / 2 - el.getBoundingClientRect().top) * (mobile ? .05 : .15))); el.style.transform = `translateY(${offset}px) rotate(${offset * .22}deg)`; }
     }); };
     window.addEventListener("scroll", update, { passive: true }); update();
     return () => { window.removeEventListener("scroll", update); cancelAnimationFrame(frame); };
