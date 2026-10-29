@@ -166,7 +166,8 @@ select option { background: var(--background); color: var(--foreground); }
   background-repeat: no-repeat, repeat, repeat;
 }
 
-/* Newar pagoda-roof menu: sloped tiled roof with a double wooden eave and upturned corners.
+/* Newar temple-eave menu: sloped tiled roof with a dark wooden eave band and a row of
+   small hanging carved pendants (tundal) along the bottom edge, like a temple roofline.
    Drawn on pseudo-layers so the About submenu is never clipped. */
 @utility menu-roof {
   position: relative;
@@ -177,18 +178,16 @@ select option { background: var(--background); color: var(--foreground); }
     content: ""; position: absolute; inset: 0 -5rem; z-index: -1; pointer-events: none;
     clip-path: polygon(5rem 0, calc(100% - 5rem) 0, 100% 80%, 100% 100%, 0 100%, 0 80%);
     background-image:
-      linear-gradient(var(--wood), var(--wood)),
-      linear-gradient(color-mix(in oklab, var(--wood) 55%, transparent), color-mix(in oklab, var(--wood) 55%, transparent)),
+      linear-gradient(color-mix(in oklab, var(--wood) 62%, transparent), color-mix(in oklab, var(--wood) 62%, transparent)),
+      linear-gradient(color-mix(in oklab, var(--wood) 28%, transparent), color-mix(in oklab, var(--wood) 28%, transparent)),
       repeating-linear-gradient(90deg, color-mix(in oklab, var(--wood) 4%, transparent) 0 1px, transparent 1px 7px),
       linear-gradient(180deg, color-mix(in oklab, var(--muted) 30%, var(--background)), var(--background));
-    background-size: 100% 2px, 100% 1px, 100% calc(100% - 6px), 100% 100%;
-    background-position: bottom, 0 calc(100% - 4px), top, 0 0;
+    background-size: 100% 6px, 100% 1px, 100% calc(100% - 7px), 100% 100%;
+    background-position: bottom, 0 calc(100% - 7px), top, 0 0;
     background-repeat: no-repeat;
   }
   &::after {
-    content: ""; position: absolute; inset: auto calc(-5rem - 4px) -3px calc(-5rem - 4px); height: 9px; z-index: -1; pointer-events: none;
-    background:
-      radial-gradient(circle at 4.5px 4.5px, var(--background) 2.5px, var(--primary) 3px 4.5px, transparent 5px) left / 9px 9px no-repeat,
-      radial-gradient(circle at 4.5px 4.5px, var(--background) 2.5px, var(--primary) 3px 4.5px, transparent 5px) right / 9px 9px no-repeat;
+    content: ""; position: absolute; inset: auto 0 -8px 0; height: 9px; z-index: -1; pointer-events: none;
+    background: radial-gradient(circle 4px at 9px 1px, color-mix(in oklab, var(--wood) 68%, transparent) 4px, transparent 4.5px) 0 0 / 18px 9px repeat-x;
   }
 }
