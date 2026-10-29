@@ -177,7 +177,7 @@ select option { background: var(--background); color: var(--foreground); }
   &::before {
     content: ""; position: absolute; inset: 0 -5rem; z-index: -1; pointer-events: none;
     clip-path: polygon(5rem 0, calc(100% - 5rem) 0, calc(100% - 1rem) calc(100% - 6px), calc(100% - 0.15rem) calc(100% - 20px), 100% 100%, 0 100%, 0.15rem calc(100% - 20px), 1rem calc(100% - 6px));
-    filter: drop-shadow(0.5px 0 0 color-mix(in oklab, var(--wood) 30%, transparent)) drop-shadow(-0.5px 0 0 color-mix(in oklab, var(--wood) 30%, transparent)) drop-shadow(0 0.5px 0 color-mix(in oklab, var(--wood) 30%, transparent)) drop-shadow(0 -0.5px 0 color-mix(in oklab, var(--wood) 30%, transparent));
+    filter: drop-shadow(0.9px 0 0 color-mix(in oklab, var(--wood) 60%, transparent)) drop-shadow(-0.9px 0 0 color-mix(in oklab, var(--wood) 60%, transparent)) drop-shadow(0 0.9px 0 color-mix(in oklab, var(--wood) 60%, transparent)) drop-shadow(0 -0.9px 0 color-mix(in oklab, var(--wood) 60%, transparent));
     background-image:
       linear-gradient(color-mix(in oklab, var(--wood) 62%, transparent), color-mix(in oklab, var(--wood) 62%, transparent)),
       repeating-linear-gradient(90deg, color-mix(in oklab, var(--wood) 4%, transparent) 0 1px, transparent 1px 7px),
