@@ -7,12 +7,20 @@ export function HeritageSketch({ className = "", variant = "drum" }: { className
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
-    const update = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => {
+    const tick = (t: number) => {
       const el = ref.current;
-       if (el) { const mobile = window.matchMedia("(max-width: 639px)").matches; const limit = mobile ? 18 : 72; const offset = Math.max(-limit, Math.min(limit, (window.innerHeight / 2 - el.getBoundingClientRect().top) * (mobile ? .05 : .15))); el.style.transform = `translateY(${offset}px) rotate(${offset * .22}deg)`; }
-    }); };
-    window.addEventListener("scroll", update, { passive: true }); update();
-    return () => { window.removeEventListener("scroll", update); cancelAnimationFrame(frame); };
+      if (el) {
+        const mobile = window.matchMedia("(max-width: 639px)").matches;
+        const limit = mobile ? 20 : 110;
+        const scroll = Math.max(-limit, Math.min(limit, (window.innerHeight / 2 - el.getBoundingClientRect().top) * (mobile ? .06 : .22)));
+        const bob = Math.sin(t / 1100) * (mobile ? 4 : 10);
+        const offset = scroll + bob;
+        el.style.transform = `translateY(${offset}px) rotate(${offset * .12}deg)`;
+      }
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
   }, []);
   return <svg ref={ref} data-sketch={variant} viewBox="0 0 500 350" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={`heritage-sketch pointer-events-none ${className}`}>
     {variant === "drum" && <g transform="rotate(-18 220 170)"><ellipse cx="130" cy="165" rx="45" ry="80" /><ellipse cx="130" cy="165" rx="36" ry="68" /><ellipse cx="335" cy="165" rx="45" ry="80" /><ellipse cx="335" cy="165" rx="35" ry="68" /><path d="M130 85 Q230 65 335 85 M130 245 Q230 265 335 245 M115 94 L345 237 M115 237 L345 94 M155 87 L315 244 M155 245 L315 86 M195 79 L275 250 M195 250 L275 79 M130 87 Q230 -5 335 87" /></g>}
