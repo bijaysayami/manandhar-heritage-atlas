@@ -47,7 +47,7 @@ export function SealRings({ className }: { className?: string }) {
       {Array.from({ length: 24 }).map((_, i) => {
         const a = (i / 24) * Math.PI * 2;
         return (
-          <line key={i} x1={100 + Math.cos(a) * 64} y1={100 + Math.sin(a) * 64} x2={100 + Math.cos(a) * 72} y2={100 + Math.sin(a) * 72} stroke="currentColor" strokeWidth="0.6" />
+          <line key={i} x1={(100 + Math.cos(a) * 64).toFixed(4)} y1={(100 + Math.sin(a) * 64).toFixed(4)} x2={(100 + Math.cos(a) * 72).toFixed(4)} y2={(100 + Math.sin(a) * 72).toFixed(4)} stroke="currentColor" strokeWidth="0.6" />
         );
       })}
     </svg>

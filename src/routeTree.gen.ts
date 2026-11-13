@@ -15,12 +15,19 @@ import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as CommitteeMembersRouteImport } from './routes/committee-members'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContributeRouteImport } from './routes/contribute'
+import { Route as FaceOfTheMonthRouteImport } from './routes/face-of-the-month'
+import { Route as FaceOfTheMonthArchiveRouteImport } from './routes/face-of-the-month-archive'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as InterviewsRouteImport } from './routes/interviews'
+import { Route as JobsRouteImport } from './routes/jobs'
 import { Route as LibraryRouteImport } from './routes/library'
+import { Route as MatrimonialRouteImport } from './routes/matrimonial'
 import { Route as OnlineFormsRouteImport } from './routes/online-forms'
 import { Route as PastPresidentsRouteImport } from './routes/past-presidents'
+import { Route as PravasRouteImport } from './routes/pravas'
+import { Route as ServiceDirectoryRouteImport } from './routes/service-directory'
 import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as SubCommitteesRouteImport } from './routes/sub-committees'
 import { Route as TwaDirectoryRouteImport } from './routes/twa-directory'
@@ -55,6 +62,21 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContributeRoute = ContributeRouteImport.update({
+  id: '/contribute',
+  path: '/contribute',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaceOfTheMonthRoute = FaceOfTheMonthRouteImport.update({
+  id: '/face-of-the-month',
+  path: '/face-of-the-month',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaceOfTheMonthArchiveRoute = FaceOfTheMonthArchiveRouteImport.update({
+  id: '/face-of-the-month-archive',
+  path: '/face-of-the-month-archive',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
@@ -70,9 +92,19 @@ const InterviewsRoute = InterviewsRouteImport.update({
   path: '/interviews',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LibraryRoute = LibraryRouteImport.update({
   id: '/library',
   path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatrimonialRoute = MatrimonialRouteImport.update({
+  id: '/matrimonial',
+  path: '/matrimonial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnlineFormsRoute = OnlineFormsRouteImport.update({
@@ -83,6 +115,16 @@ const OnlineFormsRoute = OnlineFormsRouteImport.update({
 const PastPresidentsRoute = PastPresidentsRouteImport.update({
   id: '/past-presidents',
   path: '/past-presidents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PravasRoute = PravasRouteImport.update({
+  id: '/pravas',
+  path: '/pravas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceDirectoryRoute = ServiceDirectoryRouteImport.update({
+  id: '/service-directory',
+  path: '/service-directory',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StoriesRoute = StoriesRouteImport.update({
@@ -108,12 +150,19 @@ export interface FileRoutesByFullPath {
   '/blogs': typeof BlogsRoute
   '/committee-members': typeof CommitteeMembersRoute
   '/contact': typeof ContactRoute
+  '/contribute': typeof ContributeRoute
+  '/face-of-the-month': typeof FaceOfTheMonthRoute
+  '/face-of-the-month-archive': typeof FaceOfTheMonthArchiveRoute
   '/gallery': typeof GalleryRoute
   '/history': typeof HistoryRoute
   '/interviews': typeof InterviewsRoute
+  '/jobs': typeof JobsRoute
   '/library': typeof LibraryRoute
+  '/matrimonial': typeof MatrimonialRoute
   '/online-forms': typeof OnlineFormsRoute
   '/past-presidents': typeof PastPresidentsRoute
+  '/pravas': typeof PravasRoute
+  '/service-directory': typeof ServiceDirectoryRoute
   '/stories': typeof StoriesRoute
   '/sub-committees': typeof SubCommitteesRoute
   '/twa-directory': typeof TwaDirectoryRoute
@@ -125,12 +174,19 @@ export interface FileRoutesByTo {
   '/blogs': typeof BlogsRoute
   '/committee-members': typeof CommitteeMembersRoute
   '/contact': typeof ContactRoute
+  '/contribute': typeof ContributeRoute
+  '/face-of-the-month': typeof FaceOfTheMonthRoute
+  '/face-of-the-month-archive': typeof FaceOfTheMonthArchiveRoute
   '/gallery': typeof GalleryRoute
   '/history': typeof HistoryRoute
   '/interviews': typeof InterviewsRoute
+  '/jobs': typeof JobsRoute
   '/library': typeof LibraryRoute
+  '/matrimonial': typeof MatrimonialRoute
   '/online-forms': typeof OnlineFormsRoute
   '/past-presidents': typeof PastPresidentsRoute
+  '/pravas': typeof PravasRoute
+  '/service-directory': typeof ServiceDirectoryRoute
   '/stories': typeof StoriesRoute
   '/sub-committees': typeof SubCommitteesRoute
   '/twa-directory': typeof TwaDirectoryRoute
@@ -143,12 +199,19 @@ export interface FileRoutesById {
   '/blogs': typeof BlogsRoute
   '/committee-members': typeof CommitteeMembersRoute
   '/contact': typeof ContactRoute
+  '/contribute': typeof ContributeRoute
+  '/face-of-the-month': typeof FaceOfTheMonthRoute
+  '/face-of-the-month-archive': typeof FaceOfTheMonthArchiveRoute
   '/gallery': typeof GalleryRoute
   '/history': typeof HistoryRoute
   '/interviews': typeof InterviewsRoute
+  '/jobs': typeof JobsRoute
   '/library': typeof LibraryRoute
+  '/matrimonial': typeof MatrimonialRoute
   '/online-forms': typeof OnlineFormsRoute
   '/past-presidents': typeof PastPresidentsRoute
+  '/pravas': typeof PravasRoute
+  '/service-directory': typeof ServiceDirectoryRoute
   '/stories': typeof StoriesRoute
   '/sub-committees': typeof SubCommitteesRoute
   '/twa-directory': typeof TwaDirectoryRoute
@@ -162,12 +225,19 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/committee-members'
     | '/contact'
+    | '/contribute'
+    | '/face-of-the-month'
+    | '/face-of-the-month-archive'
     | '/gallery'
     | '/history'
     | '/interviews'
+    | '/jobs'
     | '/library'
+    | '/matrimonial'
     | '/online-forms'
     | '/past-presidents'
+    | '/pravas'
+    | '/service-directory'
     | '/stories'
     | '/sub-committees'
     | '/twa-directory'
@@ -179,12 +249,19 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/committee-members'
     | '/contact'
+    | '/contribute'
+    | '/face-of-the-month'
+    | '/face-of-the-month-archive'
     | '/gallery'
     | '/history'
     | '/interviews'
+    | '/jobs'
     | '/library'
+    | '/matrimonial'
     | '/online-forms'
     | '/past-presidents'
+    | '/pravas'
+    | '/service-directory'
     | '/stories'
     | '/sub-committees'
     | '/twa-directory'
@@ -196,12 +273,19 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/committee-members'
     | '/contact'
+    | '/contribute'
+    | '/face-of-the-month'
+    | '/face-of-the-month-archive'
     | '/gallery'
     | '/history'
     | '/interviews'
+    | '/jobs'
     | '/library'
+    | '/matrimonial'
     | '/online-forms'
     | '/past-presidents'
+    | '/pravas'
+    | '/service-directory'
     | '/stories'
     | '/sub-committees'
     | '/twa-directory'
@@ -214,12 +298,19 @@ export interface RootRouteChildren {
   BlogsRoute: typeof BlogsRoute
   CommitteeMembersRoute: typeof CommitteeMembersRoute
   ContactRoute: typeof ContactRoute
+  ContributeRoute: typeof ContributeRoute
+  FaceOfTheMonthRoute: typeof FaceOfTheMonthRoute
+  FaceOfTheMonthArchiveRoute: typeof FaceOfTheMonthArchiveRoute
   GalleryRoute: typeof GalleryRoute
   HistoryRoute: typeof HistoryRoute
   InterviewsRoute: typeof InterviewsRoute
+  JobsRoute: typeof JobsRoute
   LibraryRoute: typeof LibraryRoute
+  MatrimonialRoute: typeof MatrimonialRoute
   OnlineFormsRoute: typeof OnlineFormsRoute
   PastPresidentsRoute: typeof PastPresidentsRoute
+  PravasRoute: typeof PravasRoute
+  ServiceDirectoryRoute: typeof ServiceDirectoryRoute
   StoriesRoute: typeof StoriesRoute
   SubCommitteesRoute: typeof SubCommitteesRoute
   TwaDirectoryRoute: typeof TwaDirectoryRoute
@@ -269,6 +360,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contribute': {
+      id: '/contribute'
+      path: '/contribute'
+      fullPath: '/contribute'
+      preLoaderRoute: typeof ContributeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/face-of-the-month': {
+      id: '/face-of-the-month'
+      path: '/face-of-the-month'
+      fullPath: '/face-of-the-month'
+      preLoaderRoute: typeof FaceOfTheMonthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/face-of-the-month-archive': {
+      id: '/face-of-the-month-archive'
+      path: '/face-of-the-month-archive'
+      fullPath: '/face-of-the-month-archive'
+      preLoaderRoute: typeof FaceOfTheMonthArchiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
@@ -290,11 +402,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InterviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/library': {
       id: '/library'
       path: '/library'
       fullPath: '/library'
       preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/matrimonial': {
+      id: '/matrimonial'
+      path: '/matrimonial'
+      fullPath: '/matrimonial'
+      preLoaderRoute: typeof MatrimonialRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/online-forms': {
@@ -309,6 +435,20 @@ declare module '@tanstack/react-router' {
       path: '/past-presidents'
       fullPath: '/past-presidents'
       preLoaderRoute: typeof PastPresidentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pravas': {
+      id: '/pravas'
+      path: '/pravas'
+      fullPath: '/pravas'
+      preLoaderRoute: typeof PravasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-directory': {
+      id: '/service-directory'
+      path: '/service-directory'
+      fullPath: '/service-directory'
+      preLoaderRoute: typeof ServiceDirectoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/stories': {
@@ -342,12 +482,19 @@ const rootRouteChildren: RootRouteChildren = {
   BlogsRoute: BlogsRoute,
   CommitteeMembersRoute: CommitteeMembersRoute,
   ContactRoute: ContactRoute,
+  ContributeRoute: ContributeRoute,
+  FaceOfTheMonthRoute: FaceOfTheMonthRoute,
+  FaceOfTheMonthArchiveRoute: FaceOfTheMonthArchiveRoute,
   GalleryRoute: GalleryRoute,
   HistoryRoute: HistoryRoute,
   InterviewsRoute: InterviewsRoute,
+  JobsRoute: JobsRoute,
   LibraryRoute: LibraryRoute,
+  MatrimonialRoute: MatrimonialRoute,
   OnlineFormsRoute: OnlineFormsRoute,
   PastPresidentsRoute: PastPresidentsRoute,
+  PravasRoute: PravasRoute,
+  ServiceDirectoryRoute: ServiceDirectoryRoute,
   StoriesRoute: StoriesRoute,
   SubCommitteesRoute: SubCommitteesRoute,
   TwaDirectoryRoute: TwaDirectoryRoute,

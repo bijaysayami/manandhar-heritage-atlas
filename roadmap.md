@@ -14,4 +14,7 @@
 - [ ] Add live Facebook feed — blocked by unverified Page status/embedding support for supplied profile.
 - [ ] Add a bahumata sketch and confirm the intended busya form — awaiting community reference images; other researched silhouettes are decorative, not archival drawings.
 - [ ] Publish real events/blogs and approve Newari wording — awaiting supplied content and fluent-speaker review.
-- [ ] Build the community hub: Face of the Month/archive, vacancies/applications, privacy-first matrimonial, categorized service directory/search, Sangh and twa events, moderated articles/poems/thoughts, Pravas section and repeat-visit features — awaiting scope, account/privacy and rollout decisions.
+- [x] Build static community-hub previews: Face of the Month/archive, vacancies/applications, anonymous matrimonial, categorized service search, moderated articles/poems/thoughts and Pravas; no live submissions or accounts.
+- [x] Split sample activities into Sangh and twa gatherings; add homepage hub links and repeat-visit previews.
+- [x] Verify all new routes, search/filter controls, disabled submission states, metadata and mobile layouts; run focused tests.
+- [ ] Enable real submissions, member accounts, admin review and AI-assisted service matching — awaiting a later working-hub phase and verified community content.
