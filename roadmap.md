@@ -1,4 +1,5 @@
 # Website update
+- [x] Create a standalone HTML launching-soon page with a fixed 30-day countdown, pointer-reactive animation and Newar-inspired visuals; verify and deliver a ZIP.
 - [x] Improve and verify phone layouts for sample stories, navigation and decorative sketches in all three languages (320–1024px).
 - [x] Add illustrated sample homepage events and community blogs with readable previews.
 - [x] Correct directory wording and show address/phone placeholders without inventing contacts.
